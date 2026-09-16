@@ -199,7 +199,7 @@ export const siteContent: SiteContent = {
     image: "/images/experience-quarto.jpg",
   },
   gallery: {
-    eyebrow: "Um hotel. Muitas perspectivas.",
+    eyebrow: "Galeria",
     title: "Um hotel. Muitas perspectivas.",
     images: [
       "/images/gallery-1.jpg",
