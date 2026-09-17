@@ -152,8 +152,8 @@ export const siteContent: SiteContent = {
       "/images/sequence-varanda.jpg",
     ],
     overlays: [
-      { from: 0, to: 0.05, title: "Seu próximo destino é desacelerar." },
-      { from: 0.55, to: 0.65, title: "Um refúgio desenhado para sentir o presente." },
+      { from: 0.08, to: 0.22, title: "Uma fachada que já anuncia o que vem depois." },
+      { from: 0.58, to: 0.72, title: "Da suíte à varanda, sempre de frente para o mar." },
     ],
   },
   about: {
