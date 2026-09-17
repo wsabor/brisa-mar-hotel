@@ -7,6 +7,8 @@
   --color-ink-soft: #5c6864;
   --color-accent: #df6a45;
   --color-accent-dark: #c1532f;
+  /* Same hue as --color-accent, darkened to clear 4.5:1 against --color-bg and --color-surface (AA for small text) */
+  --color-accent-text: #c24821;
 
   --font-display: var(--font-fraunces);
   --font-sans: var(--font-manrope);

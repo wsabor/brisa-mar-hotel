@@ -27,7 +27,7 @@ export function Rooms({ eyebrow, title, rooms }: RoomsContent) {
         </div>
       </Reveal>
       <div className="mt-10">
-        <Carousel onApiChange={setEmblaApi}>
+        <Carousel aria-label="Quartos" onApiChange={setEmblaApi}>
           {rooms.map((room, index) => (
             <Reveal key={room.name} delay={index * 0.08} className="w-72 shrink-0 md:w-96">
               <div className="group overflow-hidden rounded-xl">

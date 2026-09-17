@@ -23,10 +23,9 @@ export function About({ eyebrow, title, paragraph, counters }: AboutContent) {
 
       gsap.fromTo(
         cardRef.current,
-        { y: 120, opacity: 0.6 },
+        { y: 120 },
         {
           y: 0,
-          opacity: 1,
           ease: "none",
           scrollTrigger: {
             trigger: sectionRef.current,

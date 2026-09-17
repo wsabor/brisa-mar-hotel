@@ -22,6 +22,11 @@ export interface ScrollSequenceOverlay {
   subtitle?: string;
 }
 
+export interface ReducedMotionImage {
+  src: string;
+  alt: string;
+}
+
 export interface ScrollSequenceContent {
   framesPath: string;
   frameCount: number;
@@ -29,7 +34,7 @@ export interface ScrollSequenceContent {
   mobileFrameCount: number;
   scrollLength: string;
   /** Static images shown when prefers-reduced-motion is set, in order. */
-  reducedMotionImages: string[];
+  reducedMotionImages: ReducedMotionImage[];
   overlays: ScrollSequenceOverlay[];
 }
 
@@ -146,10 +151,10 @@ export const siteContent: SiteContent = {
     mobileFrameCount: 60,
     scrollLength: "+=300%",
     reducedMotionImages: [
-      "/images/sequence-fachada.jpg",
-      "/images/sequence-lobby.jpg",
-      "/images/sequence-suite.jpg",
-      "/images/sequence-varanda.jpg",
+      { src: "/images/sequence-fachada.jpg", alt: "Fachada do Hotel Brisa do Mar ao pôr do sol" },
+      { src: "/images/sequence-lobby.jpg", alt: "Lobby do hotel" },
+      { src: "/images/sequence-suite.jpg", alt: "Suíte do hotel" },
+      { src: "/images/sequence-varanda.jpg", alt: "Varanda com vista para o mar" },
     ],
     overlays: [
       { from: 0.08, to: 0.22, title: "Uma fachada que já anuncia o que vem depois." },

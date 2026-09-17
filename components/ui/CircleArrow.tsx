@@ -12,13 +12,14 @@ export function CircleArrow({ direction, onClick, disabled, className = "" }: Ci
       onClick={onClick}
       disabled={disabled}
       aria-label={direction === "left" ? "Anterior" : "Próximo"}
-      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-ink/15 text-ink transition-colors hover:border-ink/40 hover:bg-ink hover:text-surface disabled:pointer-events-none disabled:opacity-30 ${className}`}
+      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-ink/15 text-ink outline-none transition-colors hover:border-ink/40 hover:bg-ink hover:text-surface focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-dark disabled:pointer-events-none disabled:opacity-30 ${className}`}
     >
       <svg
         width="16"
         height="16"
         viewBox="0 0 16 16"
         fill="none"
+        aria-hidden="true"
         className={direction === "left" ? "rotate-180" : ""}
       >
         <path

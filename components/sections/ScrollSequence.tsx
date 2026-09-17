@@ -179,9 +179,9 @@ export function ScrollSequence({
   if (reducedMotion) {
     return (
       <section className="grid grid-cols-2 gap-1 bg-ink md:grid-cols-4">
-        {reducedMotionImages.map((src) => (
-          <div key={src} className="relative aspect-[3/4]">
-            <Image src={src} alt="" fill sizes="25vw" className="object-cover" />
+        {reducedMotionImages.map((image) => (
+          <div key={image.src} className="relative aspect-[3/4]">
+            <Image src={image.src} alt={image.alt} fill sizes="25vw" className="object-cover" />
           </div>
         ))}
       </section>
@@ -190,7 +190,7 @@ export function ScrollSequence({
 
   return (
     <section ref={sectionRef} className="relative h-screen overflow-hidden bg-ink">
-      <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
+      <canvas ref={canvasRef} aria-hidden="true" className="absolute inset-0 h-full w-full" />
       {overlays.map((overlay, index) => (
         <p
           key={overlay.title}

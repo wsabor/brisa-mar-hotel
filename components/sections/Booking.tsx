@@ -14,14 +14,14 @@ export function Booking({ title, ctaLabel, whatsappNumber, whatsappMessage }: Bo
             <span className="text-xs uppercase tracking-[0.15em] text-surface/60">Check-in</span>
             <input
               type="date"
-              className="bg-transparent text-sm text-surface outline-none [color-scheme:dark]"
+              className="rounded bg-transparent text-sm text-surface outline-none [color-scheme:dark] focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             />
           </label>
           <label className="flex flex-1 flex-col gap-1 px-4 py-2">
             <span className="text-xs uppercase tracking-[0.15em] text-surface/60">Check-out</span>
             <input
               type="date"
-              className="bg-transparent text-sm text-surface outline-none [color-scheme:dark]"
+              className="rounded bg-transparent text-sm text-surface outline-none [color-scheme:dark] focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             />
           </label>
           <Button

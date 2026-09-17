@@ -11,7 +11,7 @@ export function Testimonials({ eyebrow, title, testimonials }: TestimonialsConte
         <h2 className="mt-4 font-display text-4xl text-ink md:text-5xl">{title}</h2>
       </Reveal>
       <div className="mt-10">
-        <Carousel>
+        <Carousel aria-label="Depoimentos">
           {testimonials.map((testimonial, index) => (
             <Reveal key={testimonial.author} delay={index * 0.08} className="w-80 shrink-0">
               <blockquote className="rounded-2xl bg-surface p-6 transition-shadow duration-300 hover:shadow-lg">

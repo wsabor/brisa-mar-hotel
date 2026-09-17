@@ -27,7 +27,7 @@ export function Gallery({ eyebrow, title, images }: GalleryContent) {
         </div>
       </Reveal>
       <div className="mt-10">
-        <Carousel options={{ align: "center" }} onApiChange={setEmblaApi}>
+        <Carousel aria-label="Galeria de imagens" options={{ align: "center" }} onApiChange={setEmblaApi}>
           {images.map((image, index) => {
             const isCenter = index === Math.floor(images.length / 2);
             return (

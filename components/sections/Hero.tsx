@@ -30,7 +30,7 @@ export function Hero({ logoLine1, logoLine2, navLinks, ctaLabel, ctaHref, eyebro
       </nav>
 
       <div className="relative z-10 max-w-2xl pb-12">
-        <Eyebrow>{eyebrow}</Eyebrow>
+        <Eyebrow tone="onDark">{eyebrow}</Eyebrow>
         <h1 className="mt-4 font-display text-5xl leading-tight md:text-7xl">{title}</h1>
       </div>
     </section>
