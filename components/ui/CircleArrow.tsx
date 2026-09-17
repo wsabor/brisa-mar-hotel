@@ -1,14 +1,18 @@
 interface CircleArrowProps {
   direction: "left" | "right";
+  onClick?: () => void;
+  disabled?: boolean;
   className?: string;
 }
 
-/** Visual only for now; gains Embla wiring in the microinteractions phase. */
-export function CircleArrow({ direction, className = "" }: CircleArrowProps) {
+export function CircleArrow({ direction, onClick, disabled, className = "" }: CircleArrowProps) {
   return (
-    <span
-      aria-hidden="true"
-      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-ink/15 text-ink ${className}`}
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={disabled}
+      aria-label={direction === "left" ? "Anterior" : "Próximo"}
+      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-ink/15 text-ink transition-colors hover:border-ink/40 hover:bg-ink hover:text-surface disabled:pointer-events-none disabled:opacity-30 ${className}`}
     >
       <svg
         width="16"
@@ -25,6 +29,6 @@ export function CircleArrow({ direction, className = "" }: CircleArrowProps) {
           strokeLinejoin="round"
         />
       </svg>
-    </span>
+    </button>
   );
 }

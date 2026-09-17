@@ -4,13 +4,13 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import { useCallback, useRef, useState, useSyncExternalStore } from "react";
+import { useRef, useState } from "react";
+import { useMediaQuery, usePrefersReducedMotion } from "@/components/hooks/useMediaQuery";
 import type { ScrollSequenceContent } from "@/content/site";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const MOBILE_QUERY = "(max-width: 767px)";
-const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
 const LOAD_BATCH_SIZE = 8;
 
 function frameSrc(path: string, index: number) {
@@ -40,21 +40,6 @@ function drawCover(
   ctx.drawImage(image, (width - drawWidth) / 2, (height - drawHeight) / 2, drawWidth, drawHeight);
 }
 
-function useMediaQuery(query: string) {
-  const subscribe = useCallback(
-    (callback: () => void) => {
-      const mql = window.matchMedia(query);
-      mql.addEventListener("change", callback);
-      return () => mql.removeEventListener("change", callback);
-    },
-    [query],
-  );
-  const getSnapshot = useCallback(() => window.matchMedia(query).matches, [query]);
-  const getServerSnapshot = () => false;
-
-  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
-}
-
 export function ScrollSequence({
   framesPath,
   frameCount,
@@ -69,7 +54,7 @@ export function ScrollSequence({
   const [activeOverlay, setActiveOverlay] = useState<number | null>(null);
 
   const isMobile = useMediaQuery(MOBILE_QUERY);
-  const reducedMotion = useMediaQuery(REDUCED_MOTION_QUERY);
+  const reducedMotion = usePrefersReducedMotion();
 
   const path = isMobile ? mobileFramesPath : framesPath;
   const count = isMobile ? mobileFrameCount : frameCount;
