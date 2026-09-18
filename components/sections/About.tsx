@@ -3,16 +3,16 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 import { useRef } from "react";
 import { usePrefersReducedMotion } from "@/components/hooks/useMediaQuery";
 import { Counter } from "@/components/ui/Counter";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
 import type { AboutContent } from "@/content/site";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function About({ eyebrow, title, paragraph, counters }: AboutContent) {
+export function About({ eyebrow, title, paragraph, counters, image }: AboutContent) {
   const sectionRef = useRef<HTMLElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
   const reducedMotion = usePrefersReducedMotion();
@@ -55,7 +55,15 @@ export function About({ eyebrow, title, paragraph, counters }: AboutContent) {
             ))}
           </div>
         </div>
-        <PlaceholderImage tone="warm" className="min-h-64 rounded-xl md:min-h-full" />
+        <div className="relative min-h-64 overflow-hidden rounded-xl md:min-h-full">
+          <Image
+            src={image}
+            alt="Fachada do Hotel Brisa do Mar"
+            fill
+            sizes="(min-width: 768px) 40vw, 100vw"
+            className="object-cover"
+          />
+        </div>
       </div>
     </section>
   );

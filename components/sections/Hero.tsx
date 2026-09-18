@@ -1,12 +1,28 @@
+import Image from "next/image";
 import type { HeroContent } from "@/content/site";
 import { Button } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
 
-export function Hero({ logoLine1, logoLine2, navLinks, ctaLabel, ctaHref, eyebrow, title }: HeroContent) {
+export function Hero({
+  logoLine1,
+  logoLine2,
+  navLinks,
+  ctaLabel,
+  ctaHref,
+  eyebrow,
+  title,
+  image,
+}: HeroContent) {
   return (
     <section className="relative flex min-h-screen flex-col justify-between overflow-hidden px-6 py-6 text-surface md:px-12">
-      <PlaceholderImage tone="warm" className="absolute inset-0" />
+      <Image
+        src={image}
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+      />
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/40" />
 
       <nav className="relative z-10 flex items-center justify-between">

@@ -1,12 +1,12 @@
 "use client";
 
 import type { EmblaCarouselType } from "embla-carousel";
+import Image from "next/image";
 import { useState } from "react";
 import { useCarouselArrows } from "@/components/hooks/useCarouselArrows";
 import { Carousel } from "@/components/ui/Carousel";
 import { CircleArrow } from "@/components/ui/CircleArrow";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
 import { Reveal } from "@/components/ui/Reveal";
 import type { GalleryContent } from "@/content/site";
 
@@ -32,14 +32,21 @@ export function Gallery({ eyebrow, title, images }: GalleryContent) {
             const isCenter = index === Math.floor(images.length / 2);
             return (
               <Reveal key={image} delay={index * 0.06} className="shrink-0">
-                <PlaceholderImage
-                  tone={isCenter ? "warm" : "light"}
-                  className={`rounded-xl transition-transform duration-500 hover:scale-[1.02] ${
+                <div
+                  className={`relative overflow-hidden rounded-xl transition-transform duration-500 hover:scale-[1.02] ${
                     isCenter
                       ? "h-96 w-72 md:h-[28rem] md:w-96"
                       : "h-64 w-52 md:h-72 md:w-64"
                   }`}
-                />
+                >
+                  <Image
+                    src={image}
+                    alt="Ambiente do Hotel Brisa do Mar"
+                    fill
+                    sizes={isCenter ? "384px" : "256px"}
+                    className="object-cover"
+                  />
+                </div>
               </Reveal>
             );
           })}
