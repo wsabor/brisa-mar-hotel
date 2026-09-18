@@ -1,12 +1,12 @@
 "use client";
 
 import type { EmblaCarouselType } from "embla-carousel";
+import Image from "next/image";
 import { useState } from "react";
 import { useCarouselArrows } from "@/components/hooks/useCarouselArrows";
 import { Carousel } from "@/components/ui/Carousel";
 import { CircleArrow } from "@/components/ui/CircleArrow";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
 import { Reveal } from "@/components/ui/Reveal";
 import type { RoomsContent } from "@/content/site";
 
@@ -30,10 +30,13 @@ export function Rooms({ eyebrow, title, rooms }: RoomsContent) {
         <Carousel aria-label="Quartos" onApiChange={setEmblaApi}>
           {rooms.map((room, index) => (
             <Reveal key={room.name} delay={index * 0.08} className="w-72 shrink-0 md:w-96">
-              <div className="group overflow-hidden rounded-xl">
-                <PlaceholderImage
-                  tone="warm"
-                  className="h-64 transition-transform duration-500 group-hover:scale-105 md:h-80"
+              <div className="group relative h-64 overflow-hidden rounded-xl md:h-80">
+                <Image
+                  src={room.image}
+                  alt={room.name}
+                  fill
+                  sizes="(min-width: 768px) 384px, 288px"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <h3 className="mt-4 font-display text-2xl text-ink">{room.name}</h3>
