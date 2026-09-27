@@ -29,13 +29,13 @@ export function Rooms({ eyebrow, title, rooms }: RoomsContent) {
       <div className="mt-10">
         <Carousel aria-label="Quartos" onApiChange={setEmblaApi}>
           {rooms.map((room, index) => (
-            <Reveal key={room.name} delay={index * 0.08} className="w-72 shrink-0 md:w-96">
+            <Reveal key={room.name} delay={index * 0.08} className="min-w-0 shrink-0 basis-[85%] sm:basis-[46%] lg:basis-[30%]">
               <div className="group relative h-64 overflow-hidden rounded-xl md:h-80">
                 <Image
                   src={room.image}
                   alt={room.name}
                   fill
-                  sizes="(min-width: 768px) 384px, 288px"
+                  sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 85vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>

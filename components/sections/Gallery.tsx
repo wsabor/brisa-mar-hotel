@@ -1,57 +1,36 @@
-"use client";
-
-import type { EmblaCarouselType } from "embla-carousel";
 import Image from "next/image";
-import { useState } from "react";
-import { useCarouselArrows } from "@/components/hooks/useCarouselArrows";
-import { Carousel } from "@/components/ui/Carousel";
-import { CircleArrow } from "@/components/ui/CircleArrow";
 import { Eyebrow } from "@/components/ui/Eyebrow";
+import { Marquee } from "@/components/ui/Marquee";
 import { Reveal } from "@/components/ui/Reveal";
 import type { GalleryContent } from "@/content/site";
 
 export function Gallery({ eyebrow, title, images }: GalleryContent) {
-  const [emblaApi, setEmblaApi] = useState<EmblaCarouselType>();
-  const { canScrollPrev, canScrollNext, scrollPrev, scrollNext } = useCarouselArrows(emblaApi);
-
   return (
     <section id="galeria" className="bg-surface px-6 py-24 md:px-12">
-      <Reveal className="flex items-end justify-between gap-6">
-        <div>
-          <Eyebrow>{eyebrow}</Eyebrow>
-          <h2 className="mt-4 font-display text-4xl text-ink md:text-5xl">{title}</h2>
-        </div>
-        <div className="hidden gap-3 md:flex">
-          <CircleArrow direction="left" onClick={scrollPrev} disabled={!canScrollPrev} />
-          <CircleArrow direction="right" onClick={scrollNext} disabled={!canScrollNext} />
-        </div>
+      <Reveal>
+        <Eyebrow>{eyebrow}</Eyebrow>
+        <h2 className="mt-4 font-display text-4xl text-ink md:text-5xl">{title}</h2>
       </Reveal>
-      <div className="mt-10">
-        <Carousel aria-label="Galeria de imagens" options={{ align: "center" }} onApiChange={setEmblaApi}>
-          {images.map((image, index) => {
-            const isCenter = index === Math.floor(images.length / 2);
-            return (
-              <Reveal key={image} delay={index * 0.06} className="shrink-0">
-                <div
-                  className={`relative overflow-hidden rounded-xl transition-transform duration-500 hover:scale-[1.02] ${
-                    isCenter
-                      ? "h-96 w-72 md:h-[28rem] md:w-96"
-                      : "h-64 w-52 md:h-72 md:w-64"
-                  }`}
-                >
-                  <Image
-                    src={image}
-                    alt="Ambiente do Hotel Brisa do Mar"
-                    fill
-                    sizes={isCenter ? "384px" : "256px"}
-                    className="object-cover"
-                  />
-                </div>
-              </Reveal>
-            );
-          })}
-        </Carousel>
-      </div>
+      <Reveal className="mt-6">
+        {/* -mx cancels the section padding so the loop runs edge to edge;
+            py leaves room for the hovered photo to grow without being clipped */}
+        <Marquee aria-label="Galeria de imagens" duration={60} className="-mx-6 py-10 md:-mx-12">
+          {images.map((image) => (
+            <div
+              key={image}
+              className="relative h-56 w-80 shrink-0 overflow-hidden rounded-xl shadow-md transition-transform duration-500 ease-out hover:z-10 hover:scale-110 hover:shadow-xl md:h-72 md:w-md"
+            >
+              <Image
+                src={image}
+                alt="Ambiente do Hotel Brisa do Mar"
+                fill
+                sizes="(min-width: 768px) 448px, 320px"
+                className="object-cover"
+              />
+            </div>
+          ))}
+        </Marquee>
+      </Reveal>
     </section>
   );
 }

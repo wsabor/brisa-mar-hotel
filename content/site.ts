@@ -192,6 +192,11 @@ export const siteContent: SiteContent = {
         description: "Espaço amplo com terraço e piscina privativa.",
         image: "/images/room-villa.jpg",
       },
+      {
+        name: "Suíte Maré",
+        description: "Parede ripada em madeira, cortinas leves e o pôr do sol dentro do quarto.",
+        image: "/images/sequence-suite.jpg",
+      },
     ],
   },
   experience: {
@@ -212,6 +217,10 @@ export const siteContent: SiteContent = {
       "/images/gallery-3.jpg",
       "/images/gallery-4.jpg",
       "/images/gallery-5.jpg",
+      "/images/gallery-6.jpg",
+      "/images/gallery-7.jpg",
+      "/images/gallery-8.jpg",
+      "/images/gallery-9.jpg",
     ],
   },
   testimonials: {
@@ -232,6 +241,31 @@ export const siteContent: SiteContent = {
       {
         quote: "Cada ambiente parece enquadrado no mar. Uma experiência bonita sem ser cansativa.",
         author: "Joana Alves",
+        role: "Hóspede",
+      },
+      {
+        quote: "Fomos para comemorar dez anos de casados e cada detalhe parecia pensado para nós.",
+        author: "Renata e Paulo Siqueira",
+        role: "Aniversário de casamento",
+      },
+      {
+        quote: "O café da manhã na varanda, com o mar ali na frente, já valeu a viagem inteira.",
+        author: "Felipe Andrade",
+        role: "Hóspede",
+      },
+      {
+        quote: "Viajei a trabalho e voltei descansado. Wi-Fi rápido, silêncio e uma equipe atenciosa.",
+        author: "Carlos Nogueira",
+        role: "Viagem de negócios",
+      },
+      {
+        quote: "As crianças amaram a piscina e nós amamos o pôr do sol. Já estamos planejando a volta.",
+        author: "Beatriz Lima",
+        role: "Viagem em família",
+      },
+      {
+        quote: "Hotel bonito existe em todo lugar. Aqui o diferencial é o cuidado com cada hóspede.",
+        author: "Sofia Martins",
         role: "Hóspede",
       },
     ],

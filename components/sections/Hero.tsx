@@ -34,7 +34,11 @@ export function Hero({
         <div className="flex items-center gap-8">
           <div className="hidden items-center gap-8 text-sm md:flex">
             {navLinks.map((link) => (
-              <a key={link.href} href={link.href} className="transition-opacity hover:opacity-70">
+              <a
+                key={link.href}
+                href={link.href}
+                className="transition-opacity hover:opacity-70"
+              >
                 {link.label}
               </a>
             ))}
@@ -46,8 +50,10 @@ export function Hero({
       </nav>
 
       <div className="relative z-10 max-w-2xl pb-12">
-        <Eyebrow tone="onDark">{eyebrow}</Eyebrow>
-        <h1 className="mt-4 font-display text-5xl leading-tight md:text-7xl">{title}</h1>
+        <Eyebrow tone="onImage">{eyebrow}</Eyebrow>
+        <h1 className="mt-4 font-display text-5xl leading-tight md:text-7xl">
+          {title}
+        </h1>
       </div>
     </section>
   );
